@@ -1,0 +1,11 @@
+This is a very small library which consists of only two functions 
+
+  int iswovel(unsigned char c);
+  char *hyphen(unsigned char *arg);
+
+'iswovel' returns 1 if the character 'c' is a wovel in the Turkish 
+alphabet, and returns 0 if it is a consonant.
+
+'hyphen' returns the word 'arg' in hypenated form. The hyphen character 
+is '-'.
+
