@@ -73,7 +73,7 @@ int isvowel(unsigned char c) {
  }
 
 char *hyphen(unsigned char *word) { 
-  unsigned short int i=0,j=0,flag=0,dash=NO;
+  unsigned short int i = 0, j = 0, flag = 0, dash = 0;
   char *ret;
 
   ret = (char *)malloc(MAX_WORD);
@@ -83,31 +83,24 @@ char *hyphen(unsigned char *word) {
   }
   bzero(ret,MAX_WORD);
 
-  while(word[i+1]!='\0' && i<MAX_WORD-1) { 
+  while(word[i+1] != '\0' && i < MAX_WORD-1) { 
     if(isvowel(word[i])) { 
-      if(isvowel(word[i+1]))
-	dash=YES;
-      else 
-	if(isvowel(word[i+2]))
-	  dash=YES;
-      flag=0;
+      dash = isvowel(word[i+1]) || isvowel(word[i+2]);
+      flag = 0;
     }
-    else
-      if(!flag)
-	flag=1;
-      else {  
-        if(!isvowel(word[i+1]))
-	   dash=YES;
-        else { 
-           ret[j++]=DASH;
-	   dash=NO;
-        }
-	flag=0;
+    else {
+      if(flag) {
+	dash = !isvowel(word[i+1]);
+        if(!dash)
+           ret[j++] = DASH;
       }
+      flag = 1 - flag;
+    }
+    
     ret[j++] = word[i++];
-    if(dash==YES)
+    if(dash)
       ret[j++] = DASH;
-    dash=NO;
+    dash = 0;
   }
   ret[j++] = word[i];
 
