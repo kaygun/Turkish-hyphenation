@@ -28,19 +28,7 @@
 #define APPOSTROFF	39
 #define DASH            45
 
-#define CONSONANT     0
-#define VOWEL         1
-
-#define YES           1
-#define NO            0
-
 #define MAX_WORD 256
-
-#define CONSONANT     0
-#define VOWEL         1
-
-#define YES           1
-#define NO            0
 
 int isvowel(unsigned char c) {  
    switch(c) {  
