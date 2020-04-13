@@ -22,10 +22,6 @@
 #define SEHREMINI       222
 #define URGUP           220
 
-#define TAB             9
-#define NEWLINE		10
-#define SPACE		32
-#define APPOSTROFF	39
 #define DASH            45
 
 #define MAX_WORD 256
@@ -52,10 +48,10 @@ int isvowel(unsigned char c) {
       case 'U'        :
       case URGUP      :
       case ODEMIS     :
-	return VOWEL;
+	return(1);
 	break;
       default         :
-	return CONSONANT;
+	return(0);
 	break;
    }
  }
